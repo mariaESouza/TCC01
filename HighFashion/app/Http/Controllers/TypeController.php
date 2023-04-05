@@ -91,7 +91,7 @@ class TypeController extends Controller
     public function destroy($id)
     {
         Type::destroy($id);
-        return redirect('dashboard/Type')->with('success', 'Tipo deletado');
+        return redirect('dashboard/type')->with('success', 'Tipo deletado');
     }
 
     public function search(Request $request)

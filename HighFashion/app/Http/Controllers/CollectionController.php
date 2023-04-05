@@ -25,6 +25,10 @@ class CollectionController extends Controller
             $posts = Collection::latest()->paginate($perPage);
         }
     
+        $result = Collection::all();
+        return view('showCollection', ['result' => $result]);
+
+
     }
 
     /**
@@ -33,7 +37,7 @@ class CollectionController extends Controller
     public function create()
     {
         $result = Collection::all();
-        return view('index', ['result' => $result]);
+        return view('showCollection', ['result' => $result]);
     }
 
     /**
@@ -45,7 +49,7 @@ class CollectionController extends Controller
         $db = new Collection;
         $db->description_collection = $request->description_collection;
         $db->save();
-             
+
         }
 
     /**
@@ -55,7 +59,7 @@ class CollectionController extends Controller
     {
         $post = Collection::findOrFail($id);
 
-        return view('showCollection', compact('post'));
+        return view('showCollection',['result' => $post]);
     }
 
     /**
@@ -65,7 +69,7 @@ class CollectionController extends Controller
     {
         $post = Collection::findOrFail($id);
 
-        return view('editCollection', compact('post'));
+        return view('editCollection', ['result' => $post]);
     }
 
     /**
