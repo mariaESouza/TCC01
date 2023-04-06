@@ -48,6 +48,9 @@
                         <li class="nav-item me-5">
                             <a class="nav-link" style="color:#5B5231;" href="/dashboard/collection">Listar Categoria</a>
                         </li>
+                        <li class="nav-item me-5">
+                            <a class="nav-link" style="color:#5B5231;" href="/dashboard/products">Listar Produtos</a>
+                        </li>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
@@ -154,23 +157,21 @@ Adicionar Categoria
                                 <input  class="form-control" id="exampleFormControlInput1" name="description" placeholder="Breve descrição do produto">
                                 
                                 <label for="exampleFormControlInput1" class="form-label"></label>
-                                <select class="form-select" name="collection_id" aria-label="Default select example">
+                                <select class="form-select" name="type_id" aria-label="Default select example">
                                 <option selected>Selecione a coleção:</option>
-                                @if(isset($result))
                                 @foreach($result as $key)  
                                     <option value="{{$key->id}}">{{$key->categories}}</option>
                                 @endforeach
                                 </select>
-                               
+
                                 <label for="exampleFormControlInput1" class="form-label"></label>
-                                <select class="form-select" name="type_id" aria-label="Default select example">
+                                <select class="form-select" name="collection_id" aria-label="Default select example">
                                 <option selected>Selecione a coleção:</option>
                                 @foreach($description as $key)  
                                     <option value="{{$key->id}}">{{$key->description_collection}}</option>
                                 @endforeach
                                 </select>
-                               @endif
-
+                                
                                 <label for="exampleFormControlInput1" class="form-label"></label>
                                 <input  class="form-control" id="exampleFormControlInput1" name="value" placeholder="Digite o valor">
 

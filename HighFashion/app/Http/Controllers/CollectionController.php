@@ -75,24 +75,14 @@ class CollectionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Collection $Collection,$id)
+    public function update(Request $request,$id)
     {
-        $requestData = $request->all();   
-        if ($request->hasFile('patch')) {
-            $filenamewithExt = $request->file('patch')->getClientOriginalName();
-            $filename = pathinfo($filenamewithExt, PATHINFO_FILENAME);
-            $extension = $request->file('patch')->getClientoriginalExtension();
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file('patch')->storeAs('public/senai', $fileNameToStore);
-            $requestData['patch'] = '/senai'.$fileNameToStore; 
-        } else {
-            $requestData['patch'] = 'noimage.png';
-        }
-    
+       
         $post = Collection::findOrFail($id);
-        $post->update($requestData);
+        $post->description_collection = $request->description_collection;
+        $post->save();
     
-        return redirect('dashboard/Collection')->with('success', 'Tipo atualizado!');
+        return redirect('dashboard/collection')->with('success', 'Tipo atualizado!');
         }
     
 

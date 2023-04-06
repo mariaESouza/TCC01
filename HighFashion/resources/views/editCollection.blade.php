@@ -10,25 +10,17 @@
 
 <div>
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-success me-3 col-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-Editar Tipo
-</button>
+
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar tipo</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+
                     <div class="modal-body">
                         <form action="{{url('/dashboard/collection' . '/' . $result->id) }}" method="POST" >
                             @method('put')
                             @csrf
                             <div class="mb-3 g-3">
                                 <label for="exampleFormControlInput1" class="form-label"></label>
-                                <input class="form-control"  value="{{$result->categories}}" name="categories" id="exampleFormControlInput1" placeholder="Tipo">
+                                <input class="form-control"  value="{{$result->categories}}" name="description_collection" id="exampleFormControlInput1" placeholder="Tipo">
                             </div>
 
                     </div>

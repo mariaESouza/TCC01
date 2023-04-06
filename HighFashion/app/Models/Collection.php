@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Relations\HasOne;
 class Collection extends Model
 {
     use HasFactory;
-
-    protected $table = 'collections';
-    protected $primaryKey = 'id';
+    public function Products(): HasOne
+    {
+        return $this->hasOne(Products::class);
+    }
 }

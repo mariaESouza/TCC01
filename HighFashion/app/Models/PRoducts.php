@@ -4,11 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PRoducts extends Model
+
+class Products extends Model
 {
     use HasFactory;
 
-    protected $table = 'products';
-    protected $primaryKey = 'id';
+    public function types(): BelongsTo
+    {
+        return $this->belongsTo(Type::class, 'type_id');
+        
+    }
+
+    public function collection(): BelongsTo
+    {
+        return $this->belongsTo(Collection::class, 'collection_id');
+        
+    }
+ 
 }
